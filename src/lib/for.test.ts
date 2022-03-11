@@ -1,4 +1,5 @@
-const { For } = require('./index')
+import React from 'react'
+import { For } from '.'
 
 test('For with array', () => {
   const arr = [
@@ -32,15 +33,15 @@ test('For with object', () => {
   }
 
   const objResult = JSON.stringify([
-    'bar, 0, true, false, true',
-    'baz, 1, false, false, false',
-    'foo, 2, false, true, true',
+    'bar, 0',
+    'baz, 1',
+    'foo, 2',
   ])
 
   const result = JSON.stringify(For(
     obj,
-    (value, key, { isFirst, isLast, isEven }) => (
-      `${value.foo}, ${key}, ${isFirst}, ${isLast}, ${isEven}`
+    (value, key) => (
+      `${value.foo}, ${key}`
     ),
     true
   ))
@@ -51,6 +52,7 @@ test('For with object', () => {
 test('For with invalid collection', () => {
   expect(() => {
     For(
+      // @ts-ignore
       null,
       (value, key, { isFirst, isLast, isEven }) => (
         `${value.foo}, ${key}, ${isFirst}, ${isLast}, ${isEven}`

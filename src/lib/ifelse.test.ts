@@ -1,4 +1,5 @@
-const { If } = require('./index')
+import React from 'react'
+import { If } from '.'
 
 test('If with truthy If', () => {
   const state = 'foo'
@@ -12,6 +13,7 @@ test('If with truthy If', () => {
 test('If with falsey If', () => {
   const state = 'bar'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
     .EndIf()
 
@@ -33,6 +35,7 @@ test('If/Else with truthy If', () => {
 test('If/Else with falsey If', () => {
   const state = 'bar'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
     .Else(() => ('ELSE'))
     .EndIf()
@@ -46,6 +49,7 @@ test('If/ElseIf with truthy If', () => {
   const state = 'foo'
 
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF'))
     .EndIf()
 
@@ -55,6 +59,7 @@ test('If/ElseIf with truthy If', () => {
 test('If/ElseIf with truthy ElseIf', () => {
   const state = 'bar'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
     .ElseIf(state === 'bar', () => ('ELSE IF'))
     .EndIf()
@@ -75,7 +80,9 @@ test('If/ElseIf with truthy If and ElseIf', () => {
 test('If/ElseIf with falsey If and falsey ElseIf', () => {
   const state = 'baz'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF'))
     .EndIf()
 
@@ -90,7 +97,9 @@ test('If/ElseIf/ElseIf with truthy If', () => {
   const state = 'foo'
 
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
+    // @ts-ignore
     .ElseIf(state === 'baz', () => ('ELSE IF B'))
     .EndIf()
 
@@ -100,8 +109,10 @@ test('If/ElseIf/ElseIf with truthy If', () => {
 test('If/ElseIf/ElseIf with truthy ElseIf A', () => {
   const state = 'bar'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
+    // @ts-ignore
     .ElseIf(state === 'baz', () => ('ELSE IF B'))
     .EndIf()
 
@@ -111,7 +122,9 @@ test('If/ElseIf/ElseIf with truthy ElseIf A', () => {
 test('If/ElseIf/ElseIf with truthy ElseIf B', () => {
   const state = 'baz'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
     .ElseIf(state === 'baz', () => ('ELSE IF B'))
     .EndIf()
@@ -124,6 +137,7 @@ test('If/ElseIf/ElseIf with truthy If and ElseIf A', () => {
 
   const result = If(state === 'foo', () => ('IF'))
     .ElseIf(state === 'foo', () => ('ELSE IF A'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF B'))
     .EndIf()
 
@@ -134,6 +148,7 @@ test('If/ElseIf/ElseIf with truthy If and ElseIf B', () => {
   const state = 'foo'
 
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
     .ElseIf(state === 'foo', () => ('ELSE IF B'))
     .EndIf()
@@ -144,6 +159,7 @@ test('If/ElseIf/ElseIf with truthy If and ElseIf B', () => {
 test('If/ElseIf/ElseIf with truthy ElseIf A and ElseIf B', () => {
   const state = 'bar'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
     .ElseIf(state === 'bar', () => ('ELSE IF B'))
@@ -155,8 +171,11 @@ test('If/ElseIf/ElseIf with truthy ElseIf A and ElseIf B', () => {
 test('If/ElseIf/ElseIf with falsey If and ElseIf A/B', () => {
   const state = ''
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
+    // @ts-ignore
     .ElseIf(state === 'baz', () => ('ELSE IF B'))
     .EndIf()
 
@@ -171,6 +190,7 @@ test('If/ElseIf/Else with truthy If', () => {
   const state = 'foo'
 
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF'))
     .Else(() => ('ELSE'))
     .EndIf()
@@ -192,6 +212,7 @@ test('If/ElseIf/Else with truthy If and ElseIf', () => {
 test('If/ElseIf/Else with truthy ElseIf', () => {
   const state = 'bar'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
     .ElseIf(state === 'bar', () => ('ELSE IF'))
     .Else(() => ('ELSE'))
@@ -203,7 +224,9 @@ test('If/ElseIf/Else with truthy ElseIf', () => {
 test('If/ElseIf/Else with falsey If and ElseIf', () => {
   const state = 'baz'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF'))
     .Else(() => ('ELSE'))
     .EndIf()
@@ -218,7 +241,9 @@ test('If/ElseIf/ElseIf/Else with truthy If', () => {
   const state = 'foo'
 
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
+    // @ts-ignore
     .ElseIf(state === 'baz', () => ('ELSE IF B'))
     .Else(() => ('ELSE'))
     .EndIf()
@@ -229,8 +254,10 @@ test('If/ElseIf/ElseIf/Else with truthy If', () => {
 test('If/ElseIf/ElseIf/Else with truthy ElseIf A', () => {
   const state = 'bar'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
+    // @ts-ignore
     .ElseIf(state === 'baz', () => ('ELSE IF B'))
     .Else(() => ('ELSE'))
     .EndIf()
@@ -241,7 +268,9 @@ test('If/ElseIf/ElseIf/Else with truthy ElseIf A', () => {
 test('If/ElseIf/ElseIf/Else with truthy ElseIf B', () => {
   const state = 'baz'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
     .ElseIf(state === 'baz', () => ('ELSE IF B'))
     .Else(() => ('ELSE'))
@@ -255,6 +284,7 @@ test('If/ElseIf/ElseIf/Else with truthy If and ElseIf A', () => {
 
   const result = If(state === 'foo', () => ('IF'))
     .ElseIf(state === 'foo', () => ('ELSE IF A'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF B'))
     .Else(() => ('ELSE'))
     .EndIf()
@@ -266,6 +296,7 @@ test('If/ElseIf/ElseIf/Else with truthy If and ElseIf B', () => {
   const state = 'foo'
 
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
     .ElseIf(state === 'foo', () => ('ELSE IF B'))
     .Else(() => ('ELSE'))
@@ -277,6 +308,7 @@ test('If/ElseIf/ElseIf/Else with truthy If and ElseIf B', () => {
 test('If/ElseIf/ElseIf/Else with truthy ElseIf A and ElseIf B', () => {
   const state = 'bar'
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
     .ElseIf(state === 'bar', () => ('ELSE IF B'))
@@ -289,8 +321,11 @@ test('If/ElseIf/ElseIf/Else with truthy ElseIf A and ElseIf B', () => {
 test('If/ElseIf/ElseIf/Else with falsey If and ElseIf A/B', () => {
   const state = ''
 
+  // @ts-ignore
   const result = If(state === 'foo', () => ('IF'))
+    // @ts-ignore
     .ElseIf(state === 'bar', () => ('ELSE IF A'))
+    // @ts-ignore
     .ElseIf(state === 'baz', () => ('ELSE IF B'))
     .Else(() => ('ELSE'))
     .EndIf()
