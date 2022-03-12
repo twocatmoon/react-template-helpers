@@ -1,7 +1,5 @@
 import React from 'react'
 
-console.log('REACT IS', React)
-
 /**
  * Template helper function for branching template logic. 
  * Returns a function that takes in a JSX, which in turn returns chainable functions (ElseIf, Else).
@@ -13,32 +11,32 @@ console.log('REACT IS', React)
  *
  * @example
  * export default function () {
- *   const state = 'foo'
- * 
- *   return (
- *     <div>
- *       {
- *         If(state === 'foo', () => (
- *           <div>Foo</div>
- *         ))
- *         .ElseIf(state === 'bar', () => (
- *           <div>Bar</div>
- *         ))
- *         .ElseIf(state === 'baz', () => (
- *           <div>Baz</div>
- *         ))
- *         .Else(() => (
- *           <div>Other</div>
- *         ))
- *         .EndIf()
- *       }
- *     </div>
- *   )
+ *     const state = 'foo'
+ *   
+ *     return (
+ *         <div>
+ *         {
+ *             If(state === 'foo', () => (
+ *                 <div>Foo</div>
+ *             ))
+ *             .ElseIf(state === 'bar', () => (
+ *                 <div>Bar</div>
+ *             ))
+ *             .ElseIf(state === 'baz', () => (
+ *                 <div>Baz</div>
+ *             ))
+ *             .Else(() => (
+ *                 <div>Other</div>
+ *             ))
+ *             .EndIf()
+ *         }
+ *         </div>
+ *     )
  * })
  */
 
 export function If (condition: boolean, children: () => any) {
-    let result = <React.Fragment />
+    let result = React.Fragment({})
     let shouldContinue = true
 
     if (condition) {
@@ -96,7 +94,7 @@ export function If (condition: boolean, children: () => any) {
  * })
  */
 
- export function For <T = any> (
+export function For <T = any> (
     collection: T[] | { [key: string]: T }, 
     callbackFn: (
         item: T,
@@ -140,5 +138,5 @@ export function If (condition: boolean, children: () => any) {
 
     if (_returnArrayOnly) return children
     
-    return <React.Fragment>{children}</React.Fragment>
+    return React.Fragment({ children })
 }
