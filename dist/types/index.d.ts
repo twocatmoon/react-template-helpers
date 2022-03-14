@@ -9,6 +9,7 @@ import React from 'react';
  * @return {function} Chainable generator
  *
  * @example
+ * ```tsx
  * export default function () {
  *     const state = 'foo'
  *
@@ -32,6 +33,7 @@ import React from 'react';
  *         </div>
  *     )
  * })
+ * ```
  */
 export declare function If(condition: boolean, children: () => any): {
     ElseIf(elseCondition: boolean, children: () => any): any;
@@ -49,6 +51,7 @@ export declare function If(condition: boolean, children: () => any): {
  * @return {function} Iteration handler
  *
  * @example
+ * ```tsx
  * export default function () {
  *   const collection = [1, 2, 3]
  *
@@ -62,6 +65,7 @@ export declare function If(condition: boolean, children: () => any): {
  *     </div>
  *   )
  * })
+ * ```
  */
 export declare function For<T = any>(collection: T[] | {
     [key: string]: T;
