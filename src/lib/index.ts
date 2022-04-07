@@ -38,7 +38,7 @@ import React from 'react'
  */
 
 export function If (condition: boolean, children: () => any) {
-    let result = React.Fragment({})
+    let result = React.createElement(React.Fragment, {})
     let shouldContinue = true
 
     if (condition) {
@@ -142,5 +142,5 @@ export function For <T = any> (
 
     if (_returnArrayOnly) return children
     
-    return React.Fragment({ children })
+    return React.createElement(React.Fragment, {}, ...children)
 }
