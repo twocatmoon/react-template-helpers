@@ -1,6 +1,6 @@
 {
   "name": "@twocatmoon/react-template-helpers",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "private": false,
   "description": "Branching and iterative logic helpers for React, to help make your templates cleaner.",
   "main": "./dist/index.umd.js",
