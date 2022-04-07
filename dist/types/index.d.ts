@@ -35,12 +35,12 @@ import React from 'react';
  * })
  * ```
  */
-export declare function If(condition: boolean, children: () => any): {
-    ElseIf(elseCondition: boolean, children: () => any): any;
+export declare function If(condition: boolean | any, children: () => any): {
+    ElseIf(elseCondition: boolean | any, children: () => any): any;
     Else(children: () => any): {
-        EndIf: () => React.ReactElement<any, string | React.JSXElementConstructor<any>> | null;
+        EndIf: () => React.FunctionComponentElement<{}>;
     };
-    EndIf(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | null;
+    EndIf(): React.FunctionComponentElement<{}>;
 };
 /**
  * Template helper function for handling iteration.

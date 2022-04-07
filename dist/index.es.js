@@ -1,6 +1,6 @@
 import React from "react";
 function If(condition, children) {
-  let result = React.Fragment({});
+  let result = React.createElement(React.Fragment, {});
   let shouldContinue = true;
   if (condition) {
     result = children();
@@ -51,6 +51,6 @@ function For(collection, callbackFn, _returnArrayOnly) {
   }
   if (_returnArrayOnly)
     return children;
-  return React.Fragment({ children });
+  return React.createElement(React.Fragment, {}, ...children);
 }
 export { For, If };
