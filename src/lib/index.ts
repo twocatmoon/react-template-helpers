@@ -37,7 +37,7 @@ import React from 'react'
  * ```
  */
 
-export function If (condition: boolean, children: () => any) {
+export function If (condition: boolean | any, children: () => any) {
     let result = React.createElement(React.Fragment, {})
     let shouldContinue = true
 
@@ -47,7 +47,7 @@ export function If (condition: boolean, children: () => any) {
     }
 
     const response = {
-        ElseIf (elseCondition: boolean, children: () => any) {
+        ElseIf (elseCondition: boolean | any, children: () => any) {
             if (shouldContinue && elseCondition) {
                 result = children()
                 shouldContinue = false
